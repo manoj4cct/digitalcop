@@ -15,26 +15,26 @@
       background-color: #007BFF;
       color: white;
       padding: 20px 10px;
-      text-align: center;
-    }
-
-    .header .top-images {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
-      padding: 0 20px;
+      justify-content: space-between;
     }
 
-    .header .top-images img {
+    .header img {
       height: 120px;
-      width: auto;
+      width: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
     }
 
     .header h1 {
       font-size: 36px;
       margin: 0;
       font-weight: bold;
+      text-align: center;
+      flex-grow: 1;
+      color: white;
       text-shadow: 2px 2px 5px #000;
       font-family: 'Arial Black', Gadget, sans-serif;
       letter-spacing: 1px;
@@ -73,13 +73,18 @@
     }
 
     @media (max-width: 768px) {
-      .header .top-images {
+      .header {
         flex-direction: column;
         gap: 10px;
       }
 
       .header h1 {
         font-size: 24px;
+      }
+
+      .header img {
+        height: 80px;
+        width: 80px;
       }
 
       nav a {
@@ -92,14 +97,14 @@
 <body>
 
   <div class="header">
-    <!-- Top Row: Two Images -->
-    <div class="top-images">
-      <img src="IMG_20250701_013302.png" alt="Left Photo" />
-      <img src="IMG_20250701_013302.png" alt="Right Photo" />
-    </div>
+    <!-- Left Side Photo -->
+    <img src="IMG_20250701_013302.jpg" alt="Photo Left" />
 
-    <!-- Title -->
+    <!-- Middle Title -->
     <h1>DIGITALCOP</h1>
+
+    <!-- Right Side Photo -->
+    <img src="IMG_20250701_013302.jpg" alt="Photo Right" />
   </div>
 
   <nav>
