@@ -2,130 +2,87 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Panel - Cyber Police</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>तकनीकी वेबपेज</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Courier New', monospace;
-      background: #000000;
-      color: #00ffcc;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
     }
 
     header {
-      padding: 20px;
+      background-color: #007BFF;
+      color: white;
+      padding: 15px;
       text-align: center;
-      background: #0a0a0a;
-      border-bottom: 2px solid #00ffcc;
+      font-size: 22px;
     }
 
-    header h1 {
-      margin: 0;
-      text-shadow: 0 0 8px #00ffcc;
-    }
-
-    .container {
+    nav {
       display: flex;
       flex-wrap: wrap;
-      padding: 20px;
-      justify-content: space-between;
+      justify-content: center;
+      background-color: #f0f0f0;
+      border-bottom: 1px solid #ccc;
     }
 
-    .panel, .form-box {
-      background: #101010;
-      padding: 20px;
-      border: 1px solid #00ffcc;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      width: 48%;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      color: #00ffcc;
-    }
-
-    th, td {
-      border: 1px solid #00ffcc;
-      padding: 8px;
-      text-align: left;
-    }
-
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 5px;
-      background: #222;
-      color: #00ffcc;
-    }
-
-    button {
-      background: #00ffcc;
-      color: #000;
+    nav a {
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #333;
       font-weight: bold;
-      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
     }
 
-    button:hover {
-      background: #00ffaa;
+    nav a:hover {
+      color: #007BFF;
+      border-bottom: 3px solid #007BFF;
     }
 
-    .footer {
+    main {
+      padding: 20px;
       text-align: center;
-      padding: 10px;
-      background: #0a0a0a;
-      border-top: 1px solid #00ffcc;
+    }
+
+    @media (max-width: 768px) {
+      nav a {
+        flex: 1 0 100%;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Cyber Police Admin Panel</h1>
-  <p>Manoj Kumar - पुलिस नियंत्रण डैशबोर्ड</p>
-</header>
+  <header>
+    तकनीकी पोर्टल
+  </header>
 
-<div class="container">
+  <nav>
+    <a href="#">होम</a>
+    <a href="#">साइबर सुरक्षा</a>
+    <a href="#">तकनीकी सहायता</a>
+    <a href="#">सॉफ्टवेयर डाऊनलोड्स</a>
+    <a href="#">ऑनलाइन सेवाएं</a>
+    <a href="#">आईटी नियम एवं नीतियाँ</a>
+    <a href="#">डेटा एनालिसिस रिपोर्ट्स</a>
+    <a href="#">डिजिटल प्रमाणन</a>
+    <a href="#">सीसीटीवी निगरानी</a>
+    <a href="#">नेटवर्क इंफ्रास्ट्रक्चर</a>
+    <a href="#">प्रारूप / फॉर्म डाउनलोड</a>
+    <a href="#">शिकायत प्रबंधन प्रणाली</a>
+    <a href="#">तकनीकी स्टाफ लॉगिन</a>
+    <a href="#">ई-मेल / सर्वर एक्सेस</a>
+    <a href="#">संपर्क करें</a>
+  </nav>
 
-  <!-- शिकायत सूची -->
-  <div class="panel">
-    <h2>प्राप्त शिकायतें</h2>
-    <table>
-      <tr>
-        <th>क्र०</th>
-        <th>शिकायतकर्ता</th>
-        <th>शिकायत</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>रमेश यादव</td>
-        <td>ऑनलाइन फ्रॉड ₹10,000</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>सीमा वर्मा</td>
-        <td>फर्जी वेबसाइट से ठगी</td>
-      </tr>
-    </table>
-    <br>
-    <button>PDF जनरेट करें</button>
-  </div>
-
-  <!-- शिकायत जोड़ें फॉर्म -->
-  <div class="form-box">
-    <h2>नई शिकायत जोड़ें</h2>
-    <input type="text" placeholder="शिकायतकर्ता का नाम">
-    <textarea placeholder="शिकायत विवरण"></textarea>
-    <button>जोड़ें</button>
-  </div>
-
-</div>
-
-<div class="footer">
-  &copy; 2025 Cyber Police | Designed by Manoj Kumar
-</div>
+  <main>
+    <h2>स्वागत है तकनीकी पोर्टल में</h2>
+    <p>यहाँ आप तकनीकी सेवाओं और संसाधनों की जानकारी प्राप्त कर सकते हैं।</p>
+  </main>
 
 </body>
 </html>
