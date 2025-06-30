@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DIGITALCOP</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
+    }
+
+    .header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header img {
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
+      border: 3px solid white;
+      object-fit: cover;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      margin: 0;
+      font-weight: bold;
+      text-align: center;
+      flex-grow: 1;
+      color: white;
+      text-shadow: 2px 2px 5px #000;
+      font-family: 'Arial Black', Gadget, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #ffffff;
+      border-top: 2px solid #007BFF;
+      border-bottom: 2px solid #FF0000;
+    }
+
+    nav a {
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #000;
+      margin: 5px;
+      font-weight: bold;
+      border: 2px solid #007BFF;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background-color: #f9f9f9;
+    }
+
+    nav a:hover {
+      background-color: #FF0000;
+      color: white;
+      border-color: #FF0000;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .header img {
+        height: 60px;
+        width: 60px;
+      }
+
+      nav a {
+        flex: 1 0 80%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <!-- Left Side Photo -->
+    <img src="IMG_20250701_013302.jpg" alt="Photo Left" />
+
+    <!-- Middle Title -->
+    <h1>DIGITALCOP</h1>
+
+    <!-- Right Side Photo -->
+    <img src="IMG_20250701_013302.jpg" alt="Photo Right" />
+  </div>
+
+  <nav>
+    <a href="#">होम</a>
+    <a href="#">साइबर सुरक्षा</a>
+    <a href="#">तकनीकी सहायता</a>
+    <a href="#">सॉफ्टवेयर डाऊनलोड्स</a>
+    <a href="#">ऑनलाइन सेवाएं</a>
+    <a href="#">आईटी नियम एवं नीतियाँ</a>
+    <a href="#">डेटा एनालिसिस रिपोर्ट्स</a>
+    <a href="#">डिजिटल प्रमाणन</a>
+    <a href="#">सीसीटीवी निगरानी</a>
+    <a href="#">नेटवर्क इंफ्रास्ट्रक्चर</a>
+    <a href="#">प्रारूप / फॉर्म डाउनलोड</a>
+    <a href="#">शिकायत प्रबंधन प्रणाली</a>
+    <a href="#">तकनीकी स्टाफ लॉगिन</a>
+    <a href="#">ई-मेल / सर्वर एक्सेस</a>
+    <a href="#">संपर्क करें</a>
+  </nav>
+
+  <main>
+    <h2>स्वागत है DIGITALCOP पोर्टल में</h2>
+    <p>यहाँ आप तकनीकी सेवाओं और संसाधनों की जानकारी प्राप्त कर सकते हैं।</p>
+  </main>
+
+</body>
+</html>
