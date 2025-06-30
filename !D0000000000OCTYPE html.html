@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>सर्टिफिकेट जनरेटर</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      padding: 30px;
+    }
+    .form-box {
+      max-width: 500px;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-box">
+  <h2>सर्टिफिकेट जनरेटर</h2>
+
+  <label>नाम:</label>
+  <input type="text" id="name" placeholder="नाम दर्ज करें">
+
+  <label>पिता का नाम:</label>
+  <input type="text" id="fatherName" placeholder="पिता का नाम दर्ज करें">
+
+  <label>कोर्स का नाम:</label>
+  <input type="text" id="course" placeholder="कोर्स का नाम दर्ज करें">
+
+  <label>तिथि:</label>
+  <input type="date" id="date">
+
+  <button onclick="generateCertificate()">सर्टिफिकेट जनरेट करें</button>
+</div>
+
+<script>
+  async function generateCertificate() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const name = document.getElementById("name").value;
+    const fatherName = document.getElementById("fatherName").value;
+    const course = document.getElementById("course").value;
+    const date = document.getElementById("date").value;
+
+    // Certificate Layout
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text("प्रमाण पत्र / Certificate", 70, 30);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(14);
+    doc.text(`यह प्रमाणित किया जाता है कि`, 20, 50);
+    doc.setFont("helvetica", "bold");
+    doc.text(name, 90, 50);
+
+    doc.setFont("helvetica", "normal");
+    doc.text(`पिता का नाम: ${fatherName}`, 20, 65);
+    doc.text(`ने "${course}" कोर्स सफलतापूर्वक पूरा किया है।`, 20, 80);
+    doc.text(`तिथि: ${date}`, 20, 95);
+
+    doc.text("संस्थान का नाम", 20, 130);
+    doc.text("हस्ताक्षर", 150, 130);
+
+    doc.save(`${name}_certificate.pdf`);
+  }
+</script>
+
+</body>
+</html>
