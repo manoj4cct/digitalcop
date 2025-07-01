@@ -155,12 +155,64 @@
     <a href="#">तकनीकी स्टाफ लॉगिन</a>
     <a href="#">ई-मेल / सर्वर एक्सेस</a>
     <a href="#">संपर्क करें</a>
+    <a href="#" onclick="showLogin()">🛡️ एडमिन लॉगिन</a>
+
   </nav>
 
   <main>
     <h2>स्वागत है DIGITALCOP पोर्टल में</h2>
     <p>यहाँ आप तकनीकी सेवाओं और संसाधनों की जानकारी प्राप्त कर सकते हैं।</p>
   </main>
+<main>
+  
+
+  <!-- चलती हुई पोस्ट -->
+  <div class="scrolling-posts">
+    <div id="marquee-content"></div>
+  </div>
+</main>
+
+<style>
+  .scrolling-posts {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 2px solid #007BFF;
+    border-bottom: 2px solid #FF0000;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    color: #007BFF;
+  }
+
+  #marquee-content {
+    display: inline-block;
+    animation: scroll-left 30s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+</style>
+
+<script>
+  const posts = [
+    { title: "साइबर सुरक्षा जागरूकता अभियान", date: "01 जुलाई 2025" },
+    { title: "सीसीटीवी निगरानी अपडेट", date: "30 जून 2025" },
+    { title: "तकनीकी स्टाफ हेतु प्रशिक्षण कार्यक्रम", date: "28 जून 2025" },
+    { title: "ई-मेल सर्वर अपग्रेड 3 जुलाई को", date: "01 जुलाई 2025" },
+    { title: "डिजिटल प्रमाणन प्रक्रिया सरल की गई", date: "27 जून 2025" }
+  ];
+
+  const marqueeDiv = document.getElementById("marquee-content");
+
+  let marqueeText = posts.map(p => `${p.date} - ${p.title}`).join(" ⚫ ");
+  marqueeDiv.textContent = marqueeText;
+</script>
+
 
   <footer>
     &copy; 2025 DIGITALCOP | सभी अधिकार सुरक्षित | तकनीकी सहायता: डिजिटल तकनीकी टीम
