@@ -4,9 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DIGITALCOP</title>
-  <!-- Font Awesome CDN (for social icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-ZJpcC6UnuTyWExL7IvF3DAv8iUwH9A72XXP3V7MlT+Q7UdMwAK4l7o6vMNVq0aZw+hd+VBDI5FeP1ekvA4OA9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
   <style>
     body {
       margin: 0;
@@ -75,29 +72,54 @@
       text-align: center;
     }
 
-    footer {
-      background-color: #007BFF;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
-      font-size: 16px;
-      border-top: 2px solid #FF0000;
+    /* Admin login + panel styles */
+    .login-container, .admin-panel {
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: none;
     }
 
-    .social-icons {
+    h2 {
+      text-align: center;
+      color: #007BFF;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      width: 100%;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
       margin-top: 10px;
     }
 
-    .social-icons a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 24px;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: #FFDD00;
+    .logout {
+      background-color: #FF0000;
+      margin-top: 10px;
     }
 
     @media (max-width: 768px) {
@@ -119,27 +141,40 @@
         flex: 1 0 80%;
         text-align: center;
       }
+    }
 
-      footer {
-        font-size: 14px;
-        padding: 15px;
-      }
+    /* Scrolling post */
+    #marquee-content {
+      white-space: nowrap;
+      overflow: hidden;
+      background-color: #f1f1f1;
+      padding: 10px 0;
+      border-top: 2px solid #007BFF;
+      border-bottom: 2px solid red;
+    }
 
-      .social-icons a {
-        font-size: 20px;
-      }
+    #scroll-text {
+      display: inline-block;
+      animation: scroll-left 20s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <img src="IMG_20250701_013302.jpg" alt="Photo Left" />
+  <!-- Header -->
+  <div class="header" id="headerBox">
+    <img src="IMG_20250701_013302.jpg" alt="Left Photo" />
     <h1>DIGITALCOP</h1>
-    <img src="IMG_20250701_013302.jpg" alt="Photo Right" />
+    <img src="IMG_20250701_013302.jpg" alt="Right Photo" />
   </div>
 
-  <nav>
+  <!-- Menu -->
+  <nav id="menuBar">
     <a href="#">होम</a>
     <a href="https://www.cybercrime.gov.in" target="_blank">साइबर सुरक्षा </a>
     <a href="#">तकनीकी सहायता</a>
@@ -156,74 +191,107 @@
     <a href="#">ई-मेल / सर्वर एक्सेस</a>
     <a href="#">संपर्क करें</a>
     <a href="#" onclick="showLogin()">🛡️ एडमिन लॉगिन</a>
-
   </nav>
 
-  <main>
+  <!-- Main Content -->
+  <main id="mainContent">
     <h2>स्वागत है DIGITALCOP पोर्टल में</h2>
     <p>यहाँ आप तकनीकी सेवाओं और संसाधनों की जानकारी प्राप्त कर सकते हैं।</p>
   </main>
-<main>
-  
 
-  <!-- चलती हुई पोस्ट -->
-  <div class="scrolling-posts">
-    <div id="marquee-content"></div>
+  <!-- Admin Login -->
+  <div class="login-container" id="loginBox">
+    <h2>🔐 एडमिन लॉगिन</h2>
+    <form id="loginForm">
+      <label>Username:</label>
+      <input type="text" id="username" required />
+      <label>Password:</label>
+      <input type="password" id="password" required />
+      <button type="submit">Login</button>
+      <div class="error" id="errorMsg"></div>
+    </form>
   </div>
-</main>
 
-<style>
-  .scrolling-posts {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    border-top: 2px solid #007BFF;
-    border-bottom: 2px solid #FF0000;
-    background-color: #f1f1f1;
-    padding: 10px 0;
-    font-size: 18px;
-    font-weight: bold;
-    position: relative;
-    color: #007BFF;
-  }
+  <!-- Admin Panel -->
+  <div class="admin-panel" id="adminBox">
+    <h2>🛠️ पोस्ट एडमिन पैनल</h2>
+    <form id="postForm">
+      <label>पोस्ट शीर्षक:</label>
+      <input type="text" id="postTitle" required>
+      <label>तारीख:</label>
+      <input type="date" id="postDate" required>
+      <button type="submit">➕ पोस्ट जोड़ें</button>
+    </form>
+    <button class="logout" onclick="logout()">🚪 लॉगआउट</button>
+  </div>
 
-  #marquee-content {
-    display: inline-block;
-    animation: scroll-left 30s linear infinite;
-  }
+  <!-- Scrolling Posts -->
+  <div id="marquee-content">
+    <div id="scroll-text"></div>
+  </div>
 
-  @keyframes scroll-left {
-    0%   { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-</style>
+  <!-- JavaScript -->
+  <script>
+    const CORRECT_USERNAME = "admin";
+    const CORRECT_PASSWORD = "12345";
 
-<script>
-  const posts = [
-    { title: "साइबर सुरक्षा जागरूकता अभियान", date: "01 जुलाई 2025" },
-    { title: "सीसीटीवी निगरानी अपडेट", date: "30 जून 2025" },
-    { title: "तकनीकी स्टाफ हेतु प्रशिक्षण कार्यक्रम", date: "28 जून 2025" },
-    { title: "ई-मेल सर्वर अपग्रेड 3 जुलाई को", date: "01 जुलाई 2025" },
-    { title: "डिजिटल प्रमाणन प्रक्रिया सरल की गई", date: "27 जून 2025" }
-  ];
+    const posts = [
+      { title: "साइबर अपराध से सावधान रहें", date: "2025-07-01" },
+      { title: "DIGITALCOP पोर्टल अपडेट", date: "2025-06-30" }
+    ];
 
-  const marqueeDiv = document.getElementById("marquee-content");
+    const loginForm = document.getElementById("loginForm");
+    const errorMsg = document.getElementById("errorMsg");
 
-  let marqueeText = posts.map(p => `${p.date} - ${p.title}`).join(" ⚫ ");
-  marqueeDiv.textContent = marqueeText;
-</script>
+    loginForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
 
+      if (user === CORRECT_USERNAME && pass === CORRECT_PASSWORD) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("adminBox").style.display = "block";
+      } else {
+        errorMsg.textContent = "❌ गलत यूज़रनेम या पासवर्ड!";
+      }
+    });
 
-  <footer>
-    &copy; 2025 DIGITALCOP | सभी अधिकार सुरक्षित | तकनीकी सहायता: डिजिटल तकनीकी टीम
-    <div class="social-icons">
-      <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
-  </footer>
+    document.getElementById("postForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const title = document.getElementById("postTitle").value;
+      const date = document.getElementById("postDate").value;
+      posts.unshift({ title, date });
+      updateMarquee();
+      this.reset();
+    });
+
+    function updateMarquee() {
+      const text = posts.map(p => `${formatDate(p.date)} - ${p.title}`).join(" 🔷 ");
+      document.getElementById("scroll-text").textContent = text;
+    }
+
+    function formatDate(d) {
+      return new Date(d).toLocaleDateString('hi-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    function showLogin() {
+      document.getElementById("mainContent").style.display = "none";
+      document.getElementById("headerBox").style.display = "none";
+      document.getElementById("menuBar").style.display = "none";
+      document.getElementById("loginBox").style.display = "block";
+    }
+
+    function logout() {
+      document.getElementById("adminBox").style.display = "none";
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+      document.getElementById("headerBox").style.display = "flex";
+      document.getElementById("menuBar").style.display = "flex";
+    }
+
+    // Initial
+    updateMarquee();
+  </script>
 
 </body>
 </html>
